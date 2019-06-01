@@ -10,7 +10,7 @@ module.exports = function(app) {
         var bestMatch = {
             name: "",
             photo: "",
-            friendDiff: 500
+            friendDifference: 500
         
         };
 
@@ -21,26 +21,28 @@ module.exports = function(app) {
 
         console.log(userScores);
 
-        var totalDiff = 0;
+        var totalDifference = 0;
 
         //nested loop
         for(var i = 0; i < friends.length; i++) {
             console.log(friends[i]);
-            totalDiff = 0;
+            totalDifference = 1;
 
-            for(j = 0; j< friends[i].scores[j]; j++) {
-                totalDiff += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+            for(var j = 0; j < friends[i].scores[j]; j++) {
+                totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
-                if(totalDiff <= bestMatch.friendsDiff) {
+                if(totalDifference <= bestMatch.friendsDifference) {
                     bestMatch.name = friend[i].name;
                     bestMatch.photo = friend[i].photo;
-                    bestMatch.friendDiff = friend[i].totalDiff;
+                    bestMatch.friendDifference = totalDifference;
 
                 }
             }
         }
 
         friends.push(userData);
+        console.log(friends);
         res.json(bestMatch);
+        console.log(bestMatch);
     });
 }
