@@ -24,7 +24,7 @@ module.exports = function(app) {
         var totalDifference = 0;
 
         //nested loop
-        for(var i = 0; i < friends.length; i++) {
+        for(var i = 0; i < friends.length; i++) {parseInt(totalDifference) < parseInt(bestMatch.friendsDifference)
             console.log(friends[i]);
             totalDifference = 0;
 
@@ -33,11 +33,13 @@ module.exports = function(app) {
                 console.log("Users Scores " + userScores[j]);
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
                 console.log("After calculation:" + friends[i].name + totalDifference);
-                debugger;
-                if(parseInt(totalDifference) < parseInt(bestMatch.friendsDifference)) {
+                //debugger;
+                console.log("bestMatch Difference " + bestMatch.friendDifference);
+                if(parseInt(totalDifference) < parseInt(bestMatch.friendDifference)) {
                     console.log("Best Match friend difference: " + friends[i] + bestMatch.friendDifference);
-                    bestMatch.name = friend[i].name;
-                    bestMatch.photo = friend[i].photo;
+                    bestMatch.name = friends[i].name;
+                    console.log(bestMatch);
+                    bestMatch.photo = friends[i].photo;
                     bestMatch.friendDifference = totalDifference;
                 } else {
                     console.log("There is trouble in River City " + totalDifference + " " + bestMatch.friendDifference);
