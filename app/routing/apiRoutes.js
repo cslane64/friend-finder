@@ -14,35 +14,41 @@ module.exports = function(app) {
         
         };
 
-        console.log(req.body);
+        //console.log(req.body);
 
         var userData = req.body;
         var userScores = userData.scores;
 
-        console.log(userScores);
+        //console.log(userScores);
 
         var totalDifference = 0;
 
         //nested loop
         for(var i = 0; i < friends.length; i++) {
             console.log(friends[i]);
-            totalDifference = 1;
+            totalDifference = 0;
 
-            for(var j = 0; j < friends[i].scores[j]; j++) {
+            for(var j = 0; j < friends[i].scores.length; j++) {
+                console.log("Before calculation:" + friends[i].name + totalDifference);
+                console.log("Users Scores " + userScores[j]);
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
-
-                if(totalDifference <= bestMatch.friendsDifference) {
+                console.log("After calculation:" + friends[i].name + totalDifference);
+                debugger;
+                if(parseInt(totalDifference) < parseInt(bestMatch.friendsDifference)) {
+                    console.log("Best Match friend difference: " + friends[i] + bestMatch.friendDifference);
                     bestMatch.name = friend[i].name;
                     bestMatch.photo = friend[i].photo;
                     bestMatch.friendDifference = totalDifference;
-
+                } else {
+                    console.log("There is trouble in River City " + totalDifference + " " + bestMatch.friendDifference);
                 }
+                console.log("Total Difference: " + totalDifference);
             }
         }
 
         friends.push(userData);
-        console.log(friends);
+        //console.log(friends);
         res.json(bestMatch);
-        console.log(bestMatch);
+        //console.log(bestMatch);
     });
 }
