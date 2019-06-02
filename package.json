@@ -2,6 +2,9 @@
   "name": "friend-finder",
   "version": "1.0.0",
   "description": "Homework #13",
+  "engines": {
+    "node": "11.10.0"
+  },
   "main": "server.js",
   "dependencies": {
     "express": "^4.17.1",
