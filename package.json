@@ -8,17 +8,13 @@
   },
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
-    "inspect-process": "^0.5.0"
+    "express": "^4.17.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
-  
   "author": "Chris Lane",
   "license": "ISC"
-  
 }
-
