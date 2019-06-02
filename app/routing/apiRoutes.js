@@ -24,7 +24,7 @@ module.exports = function(app) {
         var totalDifference = 0;
 
         //nested loop
-        for(var i = 0; i < friends.length; i++) {parseInt(totalDifference) < parseInt(bestMatch.friendsDifference)
+        for(var i = 0; i < friends.length; i++) { parseInt(totalDifference) < parseInt(bestMatch.friendsDifference)
             console.log(friends[i]);
             totalDifference = 0;
 
@@ -35,7 +35,7 @@ module.exports = function(app) {
                 //console.log("After calculation:" + friends[i].name + totalDifference);
                 //debugger;
                 //console.log("bestMatch Difference " + bestMatch.friendDifference);
-                if(parseInt(totalDifference) < parseInt(bestMatch.friendDifference)) {
+                if(parseInt(totalDifference) <= parseInt(bestMatch.friendDifference)) {
                     //console.log("Best Match friend difference: " + friends[i] + bestMatch.friendDifference);
                     bestMatch.name = friends[i].name;
                     //console.log(bestMatch);
@@ -47,9 +47,10 @@ module.exports = function(app) {
                 //console.log("Total Difference: " + totalDifference);
             }
         }
-
+        
         friends.push(userData);
         //console.log(friends);
+        
         res.json(bestMatch);
         //console.log(bestMatch);
     });
